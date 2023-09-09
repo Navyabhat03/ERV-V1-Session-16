@@ -17,7 +17,7 @@ def causal_mask(size):
     return mask == 0
 
 
-def process_dataset(ds: HFDataset, config):
+def filter_sentences(ds: HFDataset, config):
     cleaned_data = []
     for item in ds:
         source = item["translation"][config["lang_src"]]
@@ -142,7 +142,7 @@ class TranslationDataModule(L.LightningDataModule):
         self.ds_raw = load_dataset(
             "opus_books", f"{config['lang_src']}-{config['lang_tgt']}", split="train"
         )
-        cleaned_data = process_dataset(self.ds_raw, config)
+        cleaned_data = filter_sentences(self.ds_raw, config)
         self.ds_raw = HFDataset.from_list(mapping=cleaned_data)
 
         self.tokenizer_src = self.get_or_build_tokenizer(
