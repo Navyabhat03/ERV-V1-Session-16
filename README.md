@@ -66,7 +66,7 @@ def filter_sentences(ds: HFDataset, config):
     return cleaned_data
 ```
 **Output:**
-![image](https://github.com/Navyabhat03/ERV-V1-Session-16/assets/60884505/5d7e9f5c-5351-453f-ba4f-bc323f891d52)
+![image](https://github.com/Navyabhat03/ERV-V1-Session-16/assets/60884505/7321fda7-899a-4ff2-9102-abcf8797acd6)
 
 ### Parameter Sharing
 ```python
