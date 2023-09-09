@@ -51,7 +51,7 @@
 ```
 ### Restricting English tokens to >= 150 and French tokens <= len(English Tokens)+10
 ```python
-def process_dataset(ds: HFDataset, config):
+def filter_sentences(ds: HFDataset, config):
     cleaned_data = []
     for item in ds:
         source = item["translation"][config["lang_src"]]
